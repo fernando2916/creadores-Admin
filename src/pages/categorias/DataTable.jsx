@@ -29,9 +29,9 @@ export const DataTable = () => {
                         <TableCell>
                             <div className="flex items-center gap-5">
                                 <Link to='/categoria/editar'>
-                                <FaPenSquare className='text-lg bg-btn-600 p-3 items-center rounded-md box-content'/>
+                                <FaPenSquare className='text-lg bg-btn-600 p-1 md:p-3 items-center rounded-md box-content'/>
                                 </Link>
-                                <FaTrash className='text-lg bg-btn-600 p-3 items-center rounded-md box-content'/>
+                                <FaTrash className='text-lg bg-btn-600 p-1 md:p-3 items-center rounded-md box-content'/>
                             </div>
                         </TableCell>
                     </TableRow>
