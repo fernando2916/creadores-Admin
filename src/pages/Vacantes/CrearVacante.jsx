@@ -76,12 +76,13 @@ export const CrearVacante = () => {
             <label className="font-medium text-sm after:content-['*'] after:ml-0.5 after:text-red-500">
               Postulacion
             </label>
-            <input
+            <textarea 
               type="text"
               name="puesto"
-              placeholder="Postulacion"
-              className="bg-transparent p-2 disabled:bg-nav-900 disabled:border-nav-900 rounded-md border-link-100 border-2 outline-none focus:shadow-md focus:shadow-link-200"
-            />
+              placeholder="Postulacion" 
+              id="" 
+              className="bg-transparent p-2 disabled:bg-nav-900 disabled:border-nav-900 rounded-md border-link-100 border-2 outline-none focus:shadow-md focus:shadow-link-200"></textarea>
+            
             {/* <p className="text-sm text-red-400 font-semibold">
               {errors.nombre}
             </p> */}
