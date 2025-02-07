@@ -5,7 +5,7 @@ export const PostBlog = () => {
   return (
     
     <VistaTabla
-     Titulo='Publicaiones de blog'
+     Titulo='Blog'
         Nombre='Crear Post'
         href='/blog/crear'
               Icon={<FaPen/>}

@@ -74,7 +74,7 @@ export const Navbar = ({ children }) => {
                       to={item.href}
                       onClick={() => setSidebarOpen(false)}
                       className={cn(
-                        item.href == location.pathname
+                        item.href == location.pathname 
                           ? "bg-nav-700"
                           : "hover:bg-nav-700 ",
                         "group flex items-center px-2 py-2 text-base font-medium rounded-md"
