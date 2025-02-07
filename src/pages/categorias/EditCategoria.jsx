@@ -106,6 +106,8 @@ export const EditCategoria = () => {
                   onChange={handleChange}
                   error={errors.nombre}
                   placeholder="Nombre de la categoria"
+               
+                  
                   className={
                     errors.nombre
                       ? "bg-transparent p-2 rounded-md border-alerts-500 border-2 outline-none focus:shadow-md focus:shadow-alerts-500"
@@ -130,6 +132,7 @@ export const EditCategoria = () => {
                   onChange={handleChange}
                   error={errors.tipo}
                   placeholder="Post, Producto, Curso, Recurso"
+                    
                   className={
                     errors.tipo
                       ? "bg-transparent p-2 rounded-md border-alerts-500 border-2 outline-none focus:shadow-md focus:shadow-alerts-500 w-full"
