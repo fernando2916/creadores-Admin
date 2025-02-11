@@ -10,9 +10,9 @@ export const Dashboard = () => {
      <Navbar>
       <ScrollToTop 
         smooth
-          component={<FaAngleUp/>}
+        component={<FaAngleUp/>}
           className="!rounded-full !bg-btn-400 !text-xl !font-semibold !p-3 !right-7 !bottom-7 !shadow-none !z-50 !shadow-transparent !flex items-center" 
-      />
+          />
         <Outlet />
     </Navbar>   
     </>

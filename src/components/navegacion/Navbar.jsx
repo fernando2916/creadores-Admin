@@ -25,10 +25,10 @@ export const Navbar = ({ children }) => {
           onClose={setSidebarOpen}
         >
           <TransitionChild
-            enter="transition-opacity ease-linear duration-300"
+            enter="transition-opacity ease-linear duration-150"
             enterFrom="opacity-0"
             enterTo="opacity-100"
-            leave="transition-opacity ease-linear duration-300"
+            leave="transition-opacity ease-linear duration-150"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
@@ -38,11 +38,11 @@ export const Navbar = ({ children }) => {
             enter="transition ease-in-out duration-300 transform"
             enterFrom="-translate-x-full"
             enterTo="translate-x-0"
-            leave="transition ease-in-out duration-300 transform"
+            leave="transition ease-in-out duration-150 transform"
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-nav-900">
+            <div className="relative flex-1 flex flex-col max-w-xs w-full  pb-4 bg-nav-900">
 
                 <div className="absolute top-0 right-0 -mr-14 pt-2">
                   <button
@@ -58,13 +58,18 @@ export const Navbar = ({ children }) => {
                   </button>
                 </div>
 
-              <div className="flex-shrink-0 flex items-center px-4">
+              <div className="flex-shrink-0 flex items-center gap-2 p-5 bg-nav-800">
                 <img
-                  className="h-8 w-auto"
+                  className="h-10 w-auto"
                   src={Icono}
 
                   alt="Workflow"
                 />
+                <div className="  gap-2">
+                <h2>Nombre </h2>
+                <h2>Rol </h2>
+
+                </div>
               </div>
               <div className="mt-5 flex-1 h-0 overflow-y-auto">
                 <nav className="px-2 space-y-1">
@@ -99,9 +104,9 @@ export const Navbar = ({ children }) => {
           </TransitionChild>
           <div className="flex-shrink-0 w-14" aria-hidden="true">
             {/* Dummy element to force sidebar to shrink to fit close icon */}
-          </div>
+           </div> 
         </Dialog>
-      </Transition>
+       </Transition> 
 
       {/* Static sidebar for desktop */}
       <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
