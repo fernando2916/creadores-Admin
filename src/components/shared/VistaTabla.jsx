@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 export const VistaTabla = ({children, Titulo, href, Nombre, Icon}) => {
   return (
     <div className="p-5">
-      <div className="flex justify-between m-3">
+      <div className="flex justify-between mb-10">
 
         <h2 className="text-2xl md:text-3xl font-bold">{Titulo}</h2>
         <Link to={href}>
