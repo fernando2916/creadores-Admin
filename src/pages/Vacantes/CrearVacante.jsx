@@ -15,7 +15,8 @@ export const CrearVacante = () => {
       </div>
 
       <div className="">
-        <form className="space-y-4 mt-8">
+        <form className="">
+          <div className="grid md:grid-cols-2 mt-8 gap-2">          
           <div className="flex flex-col gap-2">
             <label className="font-medium text-sm after:content-['*'] after:ml-0.5 after:text-red-500">
               Puesto
@@ -115,10 +116,11 @@ export const CrearVacante = () => {
               {errors.nombre}
             </p> */}
           </div>
+          </div>
           <button
                     type="submit"
                     // disabled={loading}
-                    className="w-full bg-btn-400 hover:bg-btn-600 p-2 rounded-md transition-colors duration-150 font-semibold"
+                    className="w-full bg-btn-400 hover:bg-btn-600 p-2 rounded-md transition-colors duration-150 font-semibold mt-4"
                   >
                     Crear Vacante
                   </button>

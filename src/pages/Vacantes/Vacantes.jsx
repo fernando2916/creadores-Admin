@@ -1,7 +1,18 @@
 import { VistaTabla } from "@/components/shared/VistaTabla"
+import { useVacanteStore } from "@/hooks/useVacanteStore"
+import { useEffect } from "react"
 import { FaPen } from "react-icons/fa"
+import { Table } from "./components/Table"
 
 export const Vacantes = () => {
+  const { getVacante } = useVacanteStore()
+  
+  useEffect(() => {
+    getVacante()
+  }, [])
+  
+
+
   return (
     <>
         <VistaTabla
@@ -12,8 +23,9 @@ export const Vacantes = () => {
           children={
             <>
             <div className="p-3">
+              <Table/>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+              {/* <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                 <div className="bg-nav-700 p-5">
                   <div className="">
                     <h2 className="text-lg font-semibold">Puesto</h2>
@@ -38,7 +50,7 @@ export const Vacantes = () => {
                   </div>
                 </div>
                
-              </div>
+              </div> */}
             </div>
             </>
           }

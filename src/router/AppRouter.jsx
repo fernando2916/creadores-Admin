@@ -37,19 +37,19 @@ export const AppRouter = () => {
           <Route path="editar-categoria/:id" element={<EditCategoria />} />
           <Route path="/blog" element={<PostBlog />} />
           <Route path="blog/crear" element={<CrearPost />} />
-          <Route path="blog/editar/:id" element={<EditarPost />} />
+          <Route path="editar-post/:id" element={<EditarPost />} />
           <Route path="/productos" element={<Productos />} />
           <Route path="producto/crear" element={<CrearProducto />} />
-          <Route path="producto/editar/:id" element={<EditarProducto />} />
+          <Route path="editar-producto/:id" element={<EditarProducto />} />
           <Route path="cupones" element={<Cupones />} />
           <Route path="cupon/crear" element={<CrearCupon />} />
-          <Route path="cupon/editar/:id" element={<EditarCupon />} />
+          <Route path="editar-cupon/:id" element={<EditarCupon />} />
           <Route path="cursos" element={<Cursos />} />
           <Route path="curso/crear" element={<CrearCurso />} />
-          <Route path="curso/editar/:id" element={<EditarCurso />} />
+          <Route path="editar-curso/:id" element={<EditarCurso />} />
           <Route path="vacantes" element={<Vacantes />} />
           <Route path="vacante/crear" element={<CrearVacante />} />
-          <Route path="vacante/editar/:id" element={<EditarVacante />} />
+          <Route path="editar-vacante/:id" element={<EditarVacante />} />
         </Route>
       ) : (
         <Route index path="/*" element={<Ingresar />} />
