@@ -24,7 +24,7 @@ export const DataTable = () => {
 
   return (
     <div>
-      <table className="bg-nav-800 p-5 rounded-md">
+      <table className="bg-nav-800 p-5 rounded-m w-full">
         <thead className="bg-nav-700 rounded-t-md text-start ">
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
