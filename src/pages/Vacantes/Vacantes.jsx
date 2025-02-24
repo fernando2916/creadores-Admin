@@ -2,7 +2,7 @@ import { VistaTabla } from "@/components/shared/VistaTabla"
 import { useVacanteStore } from "@/hooks/useVacanteStore"
 import { useEffect } from "react"
 import { FaPen } from "react-icons/fa"
-import { Table } from "./components/Table"
+import { TablaVacantes} from "./components/Table"
 
 export const Vacantes = () => {
   const { getVacante } = useVacanteStore()
@@ -23,7 +23,7 @@ export const Vacantes = () => {
           children={
             <>
             <div className="p-3">
-              <Table/>
+              <TablaVacantes/>
 
               {/* <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                 <div className="bg-nav-700 p-5">
