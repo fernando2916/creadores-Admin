@@ -22,6 +22,7 @@ import { Vacantes } from "@/pages/Vacantes/Vacantes";
 import { CrearVacante } from "@/pages/Vacantes/CrearVacante";
 import { EditarVacante } from "@/pages/Vacantes/EditarVacante";
 import { Usuarios } from "@/pages/User/Usuarios";
+import { CrearUsuario } from "@/pages/User/CrearUsuario";
 
 export const AppRouter = () => {
   
@@ -33,6 +34,8 @@ export const AppRouter = () => {
       ? (
         <Route element={<Dashboard />}>
           <Route index path="/" element={<DashboardHome />} />
+          <Route path="usuarios" element={<Usuarios />} />
+          <Route path="usuario/crear" element={<CrearUsuario />} />
           <Route path="usuarios" element={<Usuarios />} />
           <Route path="categorias" element={<Categorias />} />
           <Route path="categoria/crear" element={<CrearCategoria />} />
