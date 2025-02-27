@@ -4,25 +4,25 @@ import { CardData } from "@/components/shared/CardData"
 export const DashboardHome = () => {
   return (
     <div className="p-4">
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
     <CardData title='Total de Vistas' rate='0.44%' total='3,435' levelUp>
-          <div className="bg-btn-600 w-11 h-11 rounded-full justify-center flex items-center">
-          <FaEye className=" text-2xl"/>
+          <div className="bg-btn-600 p-2 rounded-full justify-center flex items-center">
+          <FaEye className="text-sm lg:text-2xl box-content"/>
           </div>
       </CardData>
       <CardData title='Total de Compras' rate='0.43%' total='$3, 435.00 MXN' levelUp>
-          <div className="bg-btn-600 w-11 h-11 rounded-full justify-center flex items-center">
-          <FaShoppingCart className=" text-2xl"/>
+          <div className="bg-btn-600 p-2 rounded-full justify-center flex items-center">
+          <FaShoppingCart className=" text-sm lg:text-2xl box-content"/>
           </div>
       </CardData>
       <CardData title='Total de Productos' rate='0.43%' total='350' levelUp>
-          <div className="bg-btn-600 w-11 h-11 rounded-full justify-center flex items-center">
-          <FaShoppingBag className=" text-2xl"/>
+          <div className="bg-btn-600 p-2 rounded-full justify-center flex items-center">
+          <FaShoppingBag className="text-sm lg:text-2xl box-content"/>
           </div>
       </CardData>
         <CardData title='Total de Usuarios' rate='0.43%' total='500' levelUp>
-          <div className="bg-btn-600 w-11 h-11 rounded-full justify-center flex items-center">
-          <FaUsers className=" text-2xl"/>
+          <div className="bg-btn-600 p-2 rounded-full justify-center flex items-center">
+          <FaUsers className="text-sm lg:text-2xl box-content"/>
           </div>
       </CardData>
     </div>
