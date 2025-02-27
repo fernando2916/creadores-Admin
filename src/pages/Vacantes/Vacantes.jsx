@@ -22,9 +22,7 @@ export const Vacantes = () => {
           href='/vacante/crear'
           children={
             <>
-            <div className="p-3">
               <TablaVacantes/>              
-            </div>
             </>
           }
         />

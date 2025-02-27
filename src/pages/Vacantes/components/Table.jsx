@@ -11,7 +11,7 @@ import { useVacanteStore } from "@/hooks/useVacanteStore";
 import { useSelector } from "react-redux";
 import { columns } from "./columns";
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { FaAngleDown } from "react-icons/fa";
+import { FaAngleDown, FaFilter } from "react-icons/fa";
 import { TableCell, TableRow, Table, TableHead, TableHeader, TableBody } from "@/components/ui/table";
 
 export const TablaVacantes = () => {
@@ -40,7 +40,7 @@ export const TablaVacantes = () => {
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between py-4">
+      <div className="flex items-center justify-between gap-3 py-4">
         <input 
         type="text" 
         placeholder="Filtrar puesto..."
@@ -53,7 +53,10 @@ export const TablaVacantes = () => {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <button className="flex items-center gap-2 justify-end border-2 border-link-100 rounded-md p-2 outline-none">
-              Columnas <FaAngleDown/>
+              <FaFilter className="text-2xl md:text-lg" />
+              <span>
+                <FaAngleDown/>
+              </span> 
             </button>
           </DropdownMenuTrigger>
           <DropdownMenuContent aling='end'>
@@ -77,8 +80,8 @@ export const TablaVacantes = () => {
       </div>
       <div className="rounded-md">
 
-      <Table className="bg-nav-800 p-5 rounded-md ">
-        <TableHeader className="bg-nav-700 rounded-t-md w-full">
+      <Table className="bg-nav-800 rounded-md ">
+        <TableHeader className="bg-nav-700 rounded-t-md text-start">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
