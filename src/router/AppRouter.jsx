@@ -1,8 +1,9 @@
+import { Navigate, Route, Routes } from "react-router-dom";
+
 import { Categorias } from "@/pages/categorias/Categorias";
 import { Ingresar } from "@/components/auth/Ingresar";
 import { Dashboard } from "@/layouts/Dashboard";
 import { DashboardHome } from "@/pages/Home/DashboardHome";
-import { Route, Routes } from "react-router-dom";
 import { EditCategoria } from "@/pages/categorias/EditCategoria";
 import { CrearCategoria } from "@/pages/categorias/CrearCategoria";
 import { PostBlog } from "@/pages/Blog/PostBlog";
@@ -23,12 +24,13 @@ import { EditarVacante } from "@/pages/Vacantes/EditarVacante";
 import { Usuarios } from "@/pages/User/Usuarios";
 
 export const AppRouter = () => {
+  
   // const status = 'not-Authenticated';
-
   const status = "Authenticated";
   return (
     <Routes>
-      {status === "Authenticated" ? (
+      {status === "Authenticated" 
+      ? (
         <Route element={<Dashboard />}>
           <Route index path="/" element={<DashboardHome />} />
           <Route path="usuarios" element={<Usuarios />} />
@@ -50,9 +52,13 @@ export const AppRouter = () => {
           <Route path="vacantes" element={<Vacantes />} />
           <Route path="vacante/crear" element={<CrearVacante />} />
           <Route path="editar-vacante/:id" element={<EditarVacante />} />
+          <Route path="/*" element={<Navigate to='/' />} />
         </Route>
       ) : (
-        <Route index path="/*" element={<Ingresar />} />
+        <>
+        <Route path="/ingresar" element={<Ingresar />} />
+        <Route path="/*" element={<Navigate to='/ingresar'/>} />
+        </>
       )}
     </Routes>
   );

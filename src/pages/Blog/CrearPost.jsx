@@ -12,7 +12,7 @@ import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
 export const CrearPost = () => {
-  // const [file, setFile] = useState()
+  const [file, setFile] = useState()
 
   const onDrop = useCallback((acceptedFiles) => {
     // Do something with the files
@@ -107,9 +107,10 @@ export const CrearPost = () => {
           </div>
           <div className="flex flex-col gap-2">
             <label>Contenido</label>
-            <input
+            <textarea
               placeholder="Contenido"
               className="bg-transparent p-2 rounded-md border-link-100 border-2 outline-none focus:shadow-md focus:shadow-link-200"
+              
             />
           </div>
           <div className="flex flex-col gap-2">
