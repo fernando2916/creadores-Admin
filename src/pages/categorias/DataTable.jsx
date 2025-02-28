@@ -7,7 +7,7 @@ import {
 } from "@tanstack/react-table";
 import { useCategoriaStore } from "@/hooks/useCategoriaStore";
 import { columns } from "./columns";
-import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 export const DataTable = () => {
   const { categorias, getCategoria, loading } =
@@ -42,9 +42,9 @@ export const DataTable = () => {
             table.getRowModel().rows.map((row) => (
               <TableRow key={row.id}>
                 {row.getVisibleCells().map((cell) => (
-                  <TableHead className="p-3 mx-5 text-sm text-center" key={cell.id}>
+                  <TableCell className="p-3 mx-5 text-sm text-center" key={cell.id}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableHead>
+                  </TableCell>
                 ))}
               </TableRow>
             ))
