@@ -6,12 +6,12 @@ export const Indicador = ({ide, Pantalla, href, Nombre}) => {
     const path = ide
     return (
         <div className="flex gap-1 items-center">
-        <Link to={href}>{Nombre}</Link>
+        <Link className="text-link-100" to={href}>{Nombre}</Link>
         {pathname === path ? (
           <>
             <FaAngleRight />
 
-            <span className="text-link-100">{Pantalla}</span>
+            <span>{Pantalla}</span>
           </>
         ) : (
           ""
