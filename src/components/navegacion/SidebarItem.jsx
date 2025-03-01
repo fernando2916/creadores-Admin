@@ -23,3 +23,32 @@ export const userNavigation = [
     { name: 'Mis datos', href: '#' },
     { name: 'Salir', href: '/' },
   ]
+
+  export const data = {
+    users: [
+      { name: 'Usuarios', href: '/usuarios', icon: FaUsers, current: false },
+      { name: 'Roles', href: '/roles', icon: FaUserCog, current: false },
+      { name: 'Permisos', href: '/permisos', icon: FaShieldAlt, current: false },  
+    ],
+
+    catalog: [
+      { name: 'Categorias ', href: '/categorias', icon: FaBox, current: false },
+      { name: 'Cupones', href: '/cupones', icon: FaTags, current: false },
+      { name: 'Oferta laboral', href: '/vacantes', icon: FaBuilding, current: false },
+    ],
+    
+    venta: [
+      { name: 'Blog', href: '/blog', icon: FaBook, current: false },
+      { name: 'Productos', href: '/productos', icon: FaTshirt, current: false },
+      { name: 'Cursos', href: '/cursos', icon: FaVideo, current: false },
+    ],
+
+    services: [
+      { name: 'Fotografía', href: '/fotografia', icon: FaCamera, current: false },
+      { name: 'Diseño Gráfico', href: '/diseño-grafico', icon: FaPen, current: false },
+      { name: 'Diseño Web', href: '/diseño-web', icon: FaLaptopCode, current: false },
+      { name: 'Paquetes', href: '/paquetes', icon: FaBoxOpen, current: false },
+      { name: 'Impresion', href: '/impresion', icon: FaPrint, current: false },
+    ],
+
+  }

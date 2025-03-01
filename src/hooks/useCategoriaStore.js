@@ -74,6 +74,20 @@ export const useCategoriaStore = () => {
 
    }
 
+   const getByCategoriaType = createAsyncThunk( 
+    'categorias/onCategoriasID',
+    async(tipo) => {
+        dispatch(onCheckingCategoria())
+        try {
+            const {data} = await creadoresAPI.get(`/categoria/tipo/${tipo}`)
+            // console.log(data)
+            dispatch(onCategoriasId(data))
+        } catch (error) {
+            console.log(error)
+        }
+    }
+);
+
 
 
     return {
@@ -90,6 +104,7 @@ export const useCategoriaStore = () => {
         postCategoria,
         editCategoria,
         getByCategoriaID,
+        getByCategoriaType,
         deleteCategoria,
     }
 }

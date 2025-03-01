@@ -8,24 +8,37 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useCallback, useState } from "react";
+import { useCategoriaStore } from "@/hooks/useCategoriaStore";
+import { useCallback, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
+import { useDispatch } from "react-redux";
+import { SelectCategorias } from "./components/categorias";
 
 export const CrearPost = () => {
-  const [file, setFile] = useState()
+  const dispatch = useDispatch();
+
+  const { getByCategoriaType, categoria } = useCategoriaStore();
+
+  const [file, setFile] = useState();
+
+ 
 
   const onDrop = useCallback((acceptedFiles) => {
     // Do something with the files
-    console.log(acceptedFiles[0])
+    console.log(acceptedFiles[0]);
+  }, []);
+
+  useEffect(() => {
+    dispatch(getByCategoriaType("Post"));
   }, []);
 
   const { getRootProps, getInputProps, isDragActive, acceptedFiles } =
     useDropzone({
       onDrop,
       accept: {
-        'image/png': [],
-        'image/jpg': [],
-      }
+        "image/png": [],
+        "image/jpg": [],
+      },
     });
 
   const handleSubmit = async (e) => {
@@ -110,34 +123,20 @@ export const CrearPost = () => {
             <textarea
               placeholder="Contenido"
               className="bg-transparent p-2 rounded-md border-link-100 border-2 outline-none focus:shadow-md focus:shadow-link-200"
-              
             />
           </div>
           <div className="flex flex-col gap-2">
             <label>Slug</label>
             <input
               placeholder="Slug"
+              disabled
               className="bg-transparent p-2 rounded-md border-link-100 border-2 outline-none focus:shadow-md focus:shadow-link-200"
             />
           </div>
 
           <div className="flex flex-col gap-2">
             <label>Categorias</label>
-            <Select>
-              <SelectTrigger className="w-auto">
-                <SelectValue placeholder="Selecciona una categoria" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  {/* <SelectLabel>Categorias</SelectLabel> */}
-                  <SelectItem value="apple">Apple</SelectItem>
-                  <SelectItem value="banana">Banana</SelectItem>
-                  <SelectItem value="blueberry">Blueberry</SelectItem>
-                  <SelectItem value="grapes">Grapes</SelectItem>
-                  <SelectItem value="pineapple">Pineapple</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
+            <SelectCategorias categoria={categoria} />
           </div>
           <div className="flex flex-col gap-2">
             <label>Tipo de articulo</label>
