@@ -5,6 +5,7 @@ import { vacantesSlice } from './store/vacantes'
 
 export const store = configureStore({
     reducer: {
+        usuarios: authSlice.reducer,
         categorias: categoriaSlice.reducer,
         vacantes: vacantesSlice.reducer,
     },

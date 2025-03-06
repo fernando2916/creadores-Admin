@@ -79,7 +79,7 @@ export const useCategoriaStore = () => {
     async(tipo) => {
         dispatch(onCheckingCategoria())
         try {
-            const {data} = await creadoresAPI.get(`/categoria/tipo/${tipo}`)
+            const {data} = await creadoresAPI.get(`/categoria/tipo/${'Post'}`)
             // console.log(data)
             dispatch(onCategoriasId(data))
         } catch (error) {

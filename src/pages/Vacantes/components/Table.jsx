@@ -10,16 +10,28 @@ import {
 import { useVacanteStore } from "@/hooks/useVacanteStore";
 import { useSelector } from "react-redux";
 import { columns } from "./columns";
-import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { FaAngleDown, FaFilter } from "react-icons/fa";
-import { TableCell, TableRow, Table, TableHead, TableHeader, TableBody } from "@/components/ui/table";
+import {
+  TableCell,
+  TableRow,
+  Table,
+  TableHead,
+  TableHeader,
+  TableBody,
+} from "@/components/ui/table";
 
 export const TablaVacantes = () => {
   const { getVacante } = useVacanteStore();
 
   const { vacantes } = useSelector((state) => state.vacantes) || [];
-  const [columnFilters, setColumnFilters] = useState([])
-  const [columnVisibility, setColumnVisibility] = useState({})
+  const [columnFilters, setColumnFilters] = useState([]);
+  const [columnVisibility, setColumnVisibility] = useState({});
 
   useEffect(() => {
     getVacante();
@@ -34,84 +46,95 @@ export const TablaVacantes = () => {
     getFilteredRowModel: getFilteredRowModel(),
     state: {
       columnFilters,
-      columnVisibility
-    }
+      columnVisibility,
+    },
   });
 
   return (
     <div className="w-full">
       <div className="flex items-center justify-between gap-3 py-4">
-        <input 
-        type="text" 
-        placeholder="Filtrar puesto..."
-        value={(table.getColumn('puesto')?.getFilterValue()) ?? ''} 
-        onChange={(event) =>
-          table.getColumn('puesto')?.setFilterValue(event.target.value)
-        }
-        className="max-w-sm outline-none border-2 border-link-100 rounded-md p-2 bg-transparent"
+        <input
+          type="text"
+          placeholder="Filtrar puesto..."
+          value={table.getColumn("puesto")?.getFilterValue() ?? ""}
+          onChange={(event) =>
+            table.getColumn("puesto")?.setFilterValue(event.target.value)
+          }
+          className="max-w-sm outline-none border-2 border-link-100 rounded-md p-2 bg-transparent"
         />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <button className="flex items-center gap-2 justify-end border-2 border-link-100 rounded-md p-2 outline-none">
               <FaFilter className="text-2xl md:text-lg" />
               <span>
-                <FaAngleDown/>
-              </span> 
+                <FaAngleDown />
+              </span>
             </button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent aling='end'>
-            {table.getAllColumns().filter((column) => column.getCanHide()).map((column) => {
-              return (
-                <DropdownMenuCheckboxItem 
-                key={column.id} 
-                className='capitalize' 
-                checked={column.getIsVisible()}
-                onCheckedChange={(value) =>
-                  column.toggleVisibility(!!value)
-                }
-                >
-                  {column.id}
-                </DropdownMenuCheckboxItem>
-              )
-            })
-            }
+          <DropdownMenuContent aling="end">
+            {table
+              .getAllColumns()
+              .filter((column) => column.getCanHide())
+              .map((column) => {
+                return (
+                  <DropdownMenuCheckboxItem
+                    key={column.id}
+                    className="capitalize"
+                    checked={column.getIsVisible()}
+                    onCheckedChange={(value) =>
+                      column.toggleVisibility(!!value)
+                    }
+                  >
+                    {column.id}
+                  </DropdownMenuCheckboxItem>
+                );
+              })}
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
       <div className="rounded-md">
-
-      <Table className="bg-nav-800 rounded-md ">
-        <TableHeader className="bg-nav-700 rounded-t-md text-start">
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <TableHead className="p-3 font-semibold" key={header.id}>
-                  {header.column.columnDef.header}
-                </TableHead>
-              ))}
-            </TableRow>
-          ))}
-        </TableHeader>
-        <TableBody>
-          {table.getRowModel()?.rows?.length > 0 ? (
-            table.getRowModel().rows.map((row) => (
-              <TableRow key={row.id}>
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell className="p-3 mx-5 text-sm text-center" key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
+        <Table className="bg-nav-800 rounded-md ">
+          <TableHeader className="bg-nav-700 rounded-t-md text-start">
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <TableHead className="p-3 font-semibold text-center" key={header.id}>
+                    {header.column.columnDef.header}
+                  </TableHead>
                 ))}
               </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell className="p-5 flex w-full justify-center">Cargando datos...</TableCell>
-            </TableRow>
-          )}          
-        </TableBody>
-      </Table>
+            ))}
+          </TableHeader>
+          <TableBody>
+            {table.getRowModel()?.rows?.length > 0 ? (
+              table.getRowModel().rows.map((row) => (
+                <TableRow key={row.id}>
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell
+                      className="p-3 mx-5 text-sm text-center"
+                      key={cell.id}
+                    >
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell
+                  colSpan={columns.length}
+                  className="h-24 text-center"
+                >
+                  No results.
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
       </div>
-
     </div>
   );
 };

@@ -4,9 +4,13 @@ import { Separator } from "../ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "../ui/sidebar";
 import { SIdebarApp } from "./SIdebarApp";
 import { userNavigation } from "./SidebarItem";
-import { FaBell } from "react-icons/fa";
+import { FaBell, FaSignInAlt } from "react-icons/fa";
+import { useUserStore } from "@/hooks/useUserStore";
 
 export const Navb = ({ children }) => {
+
+  const {startLogout} = useUserStore()
+
   return (
     <SidebarProvider>
       <SIdebarApp />
@@ -35,18 +39,29 @@ export const Navb = ({ children }) => {
                     Mi perfil - Admin 
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator/>
-                  {userNavigation.map((item) => (
-                      <DropdownMenuItem key={item.name}>
+                      <DropdownMenuItem>
                           <Link
-                            to={item.href}
+                            to='/mi-perfil'
                             className=
                               "block px-4 py-2 text-sm "
-                            
-                          >
-                            {item.name}
+                              >
+                            Mi perfil 
                           </Link>
                       </DropdownMenuItem>
-                    ))}
+                      <DropdownMenuItem>
+                          <Link
+                            to=''
+                            className=
+                              "block px-4 py-2 text-sm "
+                              >
+                                <button className="flex items-center gap-2" onClick={startLogout}>
+                            <FaSignInAlt/>
+                            Salir
+                            
+                                </button>
+                          </Link>
+                      </DropdownMenuItem>
+  
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>

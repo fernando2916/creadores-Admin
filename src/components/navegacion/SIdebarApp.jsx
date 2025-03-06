@@ -21,13 +21,22 @@ import {
 import { data } from "./SidebarItem";
 import { cn } from "@/lib/utils";
 
+import Icono from '../../assets/icono emprende.png'
+
 export const SIdebarApp = () => {
   const location = useLocation();
 
   return (
-    <Sidebar>
+    <Sidebar collapsible='icon'>
       <SidebarContent>
-        <SidebarHeader>header</SidebarHeader>
+        <SidebarHeader>
+          <div className="flex items-center gap-2 ">
+            <img src={Icono} alt="icono" className="w-10" />
+            <Link to='/'>
+            <p className="font-semibold text-xl">Panel Administrativo</p>
+            </Link>
+          </div>
+        </SidebarHeader>
         <SidebarGroup>
           <SidebarGroupLabel>Usuarios</SidebarGroupLabel>
           <SidebarGroupContent>

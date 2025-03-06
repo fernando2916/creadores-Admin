@@ -27,8 +27,7 @@ export const userNavigation = [
   export const data = {
     users: [
       { name: 'Usuarios', href: '/usuarios', icon: FaUsers, current: false },
-      { name: 'Roles', href: '/roles', icon: FaUserCog, current: false },
-      { name: 'Permisos', href: '/permisos', icon: FaShieldAlt, current: false },  
+      { name: 'Roles y Permisos', href: '/roles-permisos', icon: FaShieldAlt, current: false },  
     ],
 
     catalog: [

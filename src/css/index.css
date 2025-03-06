@@ -19,6 +19,29 @@ body {
   tr:nth-child(even) {
     background: #350058;
   }
+
+  .ql-toolbar {
+    @apply !bg-transparent rounded-t-lg p-2 border !border-t !border-l !border-r !border-link-100;
+  }
+  
+  .ql-container {
+    @apply !border !border-link-100 rounded-b-lg;
+  }
+  
+  .ql-editor {
+    @apply min-h-[200px] p-4 text-white;
+  }
+  
+  .ql-picker-label {
+    @apply text-gray-800;
+  }
+  
+  .ql-toolbar button {
+    @apply !text-white !hover:bg-btn-200 rounded-lg p-1;
+  }
+  
+
+
   
   @layer base {
   :root {

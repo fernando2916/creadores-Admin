@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.css";
 
 import dayjs from "dayjs";
+import { Badge } from "@/components/ui/badge";
 
 export const columns = [
   {
@@ -18,18 +19,25 @@ export const columns = [
   {
     header: "Tipo",
     accessorKey: "tipo",
-  },
-  {
-    header: "Fecha de creación",
     cell: ({ row }) => {
       const categoria = row.original;
-      const fecha = dayjs(categoria.created_at).format("DD-MMM-YY");
+      const variant =
+        {
+          Post: "post",
+          Producto: "product",
+          Curso: "curso",
+          Recurso: "recurso",
+        }[categoria.tipo] ?? "default";
 
-      return <>{fecha}</>;
+      return (
+        <Badge variant={variant} capitalize>
+          {categoria.tipo}
+        </Badge>
+      );
     },
   },
   {
-    header: "Fecha de Actualización",
+    header: "Creado",
     cell: ({ row }) => {
       const categoria = row.original;
       const Actualizacion = dayjs(categoria.updated_at).format("DD-MMM-YY");

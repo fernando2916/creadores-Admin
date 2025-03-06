@@ -1,5 +1,6 @@
 import { VistaTabla } from "@/components/shared/VIstaTabla"
 import { FaPen } from "react-icons/fa"
+import { TableBlog } from "./components/TableBlog"
 
 export const PostBlog = () => {
   return (
@@ -11,9 +12,7 @@ export const PostBlog = () => {
               Icon={<FaPen/>}
         
         children={
-            <>
-            <div className="">Hola post</div>
-            </>
+            <TableBlog/>
         }
     />
   )

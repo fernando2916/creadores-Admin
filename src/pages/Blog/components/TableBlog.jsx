@@ -1,11 +1,8 @@
-import { useEffect } from "react";
-
 import {
   useReactTable,
   getCoreRowModel,
   flexRender,
 } from "@tanstack/react-table";
-import { useCategoriaStore } from "@/hooks/useCategoriaStore";
 import { columns } from "./columns";
 import {
   Table,
@@ -16,27 +13,24 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-export const DataTable = () => {
-  const { categorias, getCategoria, loading } = useCategoriaStore();
-
-  useEffect(() => {
-    getCategoria();
-  }, []);
-
+export const TableBlog = () => {
   const table = useReactTable({
-    data: categorias,
+    data: [],
     columns: columns,
     getCoreRowModel: getCoreRowModel(),
   });
 
   return (
-    <div className="w-full">
-      <Table className="bg-nav-800 p-5 rounded-m w-full">
-        <TableHeader className="bg-nav-700 rounded-t-md text-start ">
+    <div>
+      <Table className="bg-nav-800 rounded-md w-full">
+        <TableHeader className="bg-nav-700 rounded-t-md">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <TableHead className="p-3 font-semibold text-center" key={header.id}>
+                <TableHead
+                  className="p-3 font-semibold text-center"
+                  key={header.id}
+                >
                   {header.column.columnDef.header}
                 </TableHead>
               ))}
@@ -59,8 +53,11 @@ export const DataTable = () => {
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
-                No results.
+              <TableCell
+                colSpan={columns.length}
+                className="h-24 text-center"
+              >
+                No hay registros
               </TableCell>
             </TableRow>
           )}

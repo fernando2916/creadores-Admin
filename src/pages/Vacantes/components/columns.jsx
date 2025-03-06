@@ -6,11 +6,12 @@ import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.css";
 
 import dayjs from "dayjs";
+import { Badge } from "@/components/ui/badge";
 
 
 export const columns = [
   {
-    header: "ID",
+    header: "Id",
     accessorKey: "id",
     enableHiding: false,
   },
@@ -21,6 +22,22 @@ export const columns = [
   {
     header: "Modalidad",
     accessorKey: "modalidad",
+    cell: ({ row }) => {
+      const vacante = row.original;
+      const variant =
+        {
+          Presencial: "presencial",
+          Hibrido: "hibrido",
+          'Home Office': "office",
+
+        }[vacante.modalidad] ?? "default";
+
+      return (
+        <Badge variant={variant} capitalize>
+          {vacante.modalidad}
+        </Badge>
+      );
+    },
   },
   {
     header: "Horario",

@@ -1,6 +1,5 @@
 // import { Navbar } from "../components/navegacion/Navbar"
 import { Outlet } from "react-router-dom"
-import { Navbar } from "../components/navegacion/Navbar"
 import ScrollToTop from 'react-scroll-to-top'
 import { FaAngleUp } from "react-icons/fa"
 import { Navb } from "@/components/navegacion/Navb"

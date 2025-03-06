@@ -1,5 +1,6 @@
 import { VistaTabla } from "@/components/shared/VIstaTabla"
 import { FaPen } from "react-icons/fa"
+import { ProductosTable } from "./components/ProductosTable"
 
 export const Productos = () => {
   return (
@@ -10,9 +11,7 @@ export const Productos = () => {
     Icon={<FaPen/>}
     
     children={
-        <>
-        <h2>Productos</h2>
-        </>
+        <ProductosTable/>
     }
     />
   )

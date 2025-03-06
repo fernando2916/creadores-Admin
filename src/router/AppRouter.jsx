@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { Categorias } from "@/pages/categorias/Categorias";
@@ -23,20 +24,47 @@ import { CrearVacante } from "@/pages/Vacantes/CrearVacante";
 import { EditarVacante } from "@/pages/Vacantes/EditarVacante";
 import { Usuarios } from "@/pages/User/Usuarios";
 import { CrearUsuario } from "@/pages/User/CrearUsuario";
+import { Roles } from "@/pages/Roles y permisos/Roles";
+import { useUserStore } from "@/hooks/useUserStore";
+
+import { Oval } from "react-loader-spinner";
 
 export const AppRouter = () => {
-  
-  // const status = 'not-Authenticated';
-  const status = "Authenticated";
+  // const { status, checkAuthToken } = useUserStore();
+
+  // useEffect(() => {
+  //   checkAuthToken();
+  // }, []);
+
+  // if (status === "checking") {
+  //   return (
+  //     <div className="h-screen">
+  //       <div className=" items-center justify-center flex h-full">
+  //         <Oval
+  //           visible={true}
+  //           height="60"
+  //           strokeWidth={4}
+  //           width="60"
+  //           color="#fff"
+  //           secondaryColor="#6e004c"
+  //           ariaLabel="oval-loading"
+  //         />
+  //       </div>
+  //     </div>
+  //   );
+  // }
+
+  const status = 'Authenticated';
+
   return (
     <Routes>
-      {status === "Authenticated" 
-      ? (
+      {status === "Authenticated" ? (
         <Route element={<Dashboard />}>
           <Route index path="/" element={<DashboardHome />} />
           <Route path="usuarios" element={<Usuarios />} />
           <Route path="usuario/crear" element={<CrearUsuario />} />
-          <Route path="usuarios" element={<Usuarios />} />
+          <Route path="editar-usuario" element={<Usuarios />} />
+          <Route path="/roles-permisos" element={<Roles />} />
           <Route path="categorias" element={<Categorias />} />
           <Route path="categoria/crear" element={<CrearCategoria />} />
           <Route path="editar-categoria/:id" element={<EditCategoria />} />
@@ -55,12 +83,12 @@ export const AppRouter = () => {
           <Route path="vacantes" element={<Vacantes />} />
           <Route path="vacante/crear" element={<CrearVacante />} />
           <Route path="editar-vacante/:id" element={<EditarVacante />} />
-          <Route path="/*" element={<Navigate to='/' />} />
+          <Route path="/*" element={<Navigate to="/" />} />
         </Route>
       ) : (
         <>
-        <Route path="/ingresar" element={<Ingresar />} />
-        <Route path="/*" element={<Navigate to='/ingresar'/>} />
+          <Route path="/ingresar" element={<Ingresar />} />
+          <Route path="/*" element={<Navigate to="/ingresar" />} />
         </>
       )}
     </Routes>
